@@ -54,4 +54,11 @@ export const updateTourM = async (id, data) => {
   return toursList[0];
 };
 
-//delete užduotis jums
+export const deleteTourByIDM = async (id) => {
+  const toursList = await sql`
+    delete from tours 
+    where tours.id = ${id}
+    returning *
+    `;
+  return toursList[0];
+};

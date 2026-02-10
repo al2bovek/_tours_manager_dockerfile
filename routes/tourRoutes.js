@@ -10,6 +10,7 @@ import {
   getToursByDandD,
   postNewTour,
   updateTour,
+  deleteTourByID,
   mForPostRoute,
 } from "../controllers/toursController.js";
 
@@ -19,7 +20,8 @@ const toursRouter = express.Router();
 toursRouter
   .route("/:id")
   .get(validateID, validate, getTourByID)
-  .patch(updateTour);
+  .patch(updateTour)
+  .delete(deleteTourByID);;
 toursRouter
   .route("/")
   .get(validateSort, validate, getAlltours)

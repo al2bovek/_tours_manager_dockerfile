@@ -129,6 +129,33 @@ export const updateTour = async (req, res) => {
   });
 };
 
+// 6
+export const deleteTourByID = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tour = await deleteTourByIDM(id);
+
+    if (!tour) {
+      res.status(404).json({
+        status: "fail",
+        message: "Invalid tour ID",
+      });
+      return;
+    }
+
+    res.status(200).json({
+      status: "success",
+      data: tour,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "fail",
+      message: error.message,
+    });
+  }
+};
+
 //middleware
 export const mForPostRoute = (req, res, next) => {
   console.log("Hello from delete middleware");
