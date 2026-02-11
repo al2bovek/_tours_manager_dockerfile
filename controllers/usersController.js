@@ -1,8 +1,12 @@
-export const getAllUsers = (req, res, next) => {
+import { getAllUsersM } from "../models/userModel.js";
+
+export const getAllUsers = async (req, res) => {
+  const userList = await getAllUsersM();
   res.status(200).json({
-    status: "success",
-    data: "All users list",
-  });
+      status: "success",
+      requestTime: req.requestTime,
+      data: userList,
+    });
 };
 
 export const postNewUser = (req, res, next) => {

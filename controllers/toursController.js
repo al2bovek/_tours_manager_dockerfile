@@ -4,7 +4,7 @@ import {
   postNewTourM,
   updateTourM,
 } from "../models/toursModel.js";
-import AppError from "../utils/AppError.js";
+import AppError from "../utils/appError.js";
 
 //1.
 export const getAlltours = async (req, res, next) => {

@@ -20,3 +20,17 @@ INSERT INTO tours (name, duration, maxgroupsize, difficulty, category, price) VA
 ('Ski Alps Tour', 7, 18, 'hard', 'sport', 1800.00),
 ('Wine & Food Experience', 5, 20, 'easy', 'gastronomy', 650.00);
 
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    username TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    role TEXT NOT NULL DEFAULT 'user'
+);
+
+INSERT INTO users (username, email, password, role) VALUES
+('john_doe', 'john.doe@example.com', '$2b$12$hashedpassword1', 'user'),
+('jane_smith', 'jane.smith@example.com', '$2b$12$hashedpassword2', 'user'),
+('admin', 'admin@example.com', '$2b$12$hashedpassword3', 'admin'),
+('alice', 'alice@example.com', '$2b$12$hashedpassword4', 'user'),
+('bob', 'bob@example.com', '$2b$12$hashedpassword5', 'user');
