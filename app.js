@@ -3,12 +3,16 @@ import express from "express";
 
 import toursRouter from "./routes/tourRoutes.js";
 import usersRouter from "./routes/userRoutes.js";
+import cookieParser from "cookie-parser";
 
 //create server
 const app = express();
 
 //parses (converts to js object) incoming json data to req.body
 app.use(express.json());
+
+// req.cookies
+app.use(cookieParser());
 
 //middleware, for all routes
 app.use((req, res, next) => {

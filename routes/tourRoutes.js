@@ -3,6 +3,8 @@ import validateID from "../validators/id.js";
 import validateNewTour from "../validators/newTour.js";
 import validate from "../validators/validate.js";
 import validateSort from "../validators/filterquery.js";
+import { protect } from "../controllers/authController.js";
+import { allowAccessTo } from "../controllers/authController.js";
 
 import {
   getAlltours,
@@ -24,7 +26,7 @@ toursRouter
   .delete(deleteTourByID);;
 toursRouter
   .route("/")
-  .get(validateSort, validate, getAlltours)
+  .get(protect, allowAccessTo("admin"), validateSort, validate, getAlltours)
   .post(mForPostRoute, validateNewTour, validate, postNewTour);
 toursRouter.route("/:duration/:difficulty").get(getToursByDandD);
 

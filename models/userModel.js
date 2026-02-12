@@ -22,5 +22,12 @@ export const getAllUsersM = async () => {
     where email = ${email}
     `
     return users[0];
+ }
 
+  export const getUserByIdM = async (id) => {
+    const users = await sql`
+    select * from users 
+    where id = ${id}
+    `
+    return users[0];
  }

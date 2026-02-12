@@ -1,18 +1,18 @@
 meta {
-  name: signupUser
+  name: logoutUser
   type: http
-  seq: 7
+  seq: 11
 }
 
-post {
-  url: {{baseURL}}/api/v1/users/signup
-  body: json
+get {
+  url: {{baseURL}}/api/v1/users/logout/
+  body: none
   auth: inherit
 }
 
 body:json {
   {
-      "username": "userBb",
+      "username": "",
       "email": "emailBb",
       "password": "passBb"
   }
