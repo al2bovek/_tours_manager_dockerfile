@@ -9,13 +9,6 @@ export const getAllUsers = async (req, res) => {
     });
 };
 
-export const postNewUser = (req, res, next) => {
-  res.status(200).json({
-    status: "success",
-    data: "New User added",
-  });
-};
-
 export const getUserByID = (req, res, next) => {
   res.status(200).json({
     status: "success",

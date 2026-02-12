@@ -12,7 +12,7 @@ app.use(express.json());
 
 //middleware, for all routes
 app.use((req, res, next) => {
-  console.log("Hello from the middleware for any routes");
+  // console.log("Hello from the middleware for any routes");
   next();
 });
 
